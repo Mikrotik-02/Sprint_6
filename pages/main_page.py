@@ -8,6 +8,13 @@ class MainPage(BasePage):
     def open_main_page(self):
         self.open_page(self.MAIN_URL)
 
+    def click_top_order_button(self):
+        self.click_element(MainPageLocators.ORDER_BUTTON_TOP)
+
+    def click_bottom_order_button(self):
+        self.scroll_to_element(MainPageLocators.ORDER_BUTTON_BOTTOM)
+        self.click_element(MainPageLocators.ORDER_BUTTON_BOTTOM)
+
     def click_question_by_index(self, index):
         locator = MainPageLocators.QUESTION_BY_ID(index)
         self.scroll_to_element(locator)
@@ -16,18 +23,8 @@ class MainPage(BasePage):
     def get_answer_text_by_index(self, index):
         return self.get_text(MainPageLocators.ANSWER_BY_ID(index))
 
-    def click_top_order_button(self):
-        self.click_element(MainPageLocators.ORDER_BUTTON_TOP)
-
-    def click_bottom_order_button(self):
-        self.scroll_to_element(MainPageLocators.ORDER_BUTTON_BOTTOM)
-        self.click_element(MainPageLocators.ORDER_BUTTON_BOTTOM)
-
     def click_scooter_logo(self):
         self.click_element(MainPageLocators.SCOOTER_LOGO)
 
     def click_yandex_logo(self):
         self.click_element(MainPageLocators.YANDEX_LOGO)
-
-    def switch_to_new_window(self):
-        super().switch_to_new_window()
