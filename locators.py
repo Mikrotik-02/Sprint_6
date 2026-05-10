@@ -22,7 +22,8 @@ class OrderPageLocators:
     METRO_STATION = lambda station_name: (By.XPATH,f".//div[text()='{station_name}']")
 
     DELIVERY_DATE_INPUT = (By.XPATH, ".//input[@placeholder='* Когда привезти самокат']")
-
+    CALENDAR_DAY = lambda day: (By.XPATH, f".//div[contains(@class, 'react-datepicker__day') and not(contains(@class, 'react-datepicker__day--outside-month')) and text()='{day}']")
+    
     RENTAL_PERIOD_DROPDOWN = (By.CLASS_NAME, "Dropdown-placeholder")
     RENTAL_PERIOD_OPTION = lambda period: (By.XPATH, f".//div[@class='Dropdown-option' and text()='{period}']")
 
