@@ -16,13 +16,15 @@ QUESTIONS_AND_ANSWERS = [
 ]
 
 
-@allure.title("Проверка раскрытия ответов в блоке 'Вопросы о важном'")
-@pytest.mark.parametrize("index, expected_answer", QUESTIONS_AND_ANSWERS)
-def test_question_opens_correct_answer(driver, index, expected_answer):
-    main_page = MainPage(driver)
-    main_page.open_main_page()
+class TestQuestionsPage:
 
-    main_page.click_question_by_index(index)
-    actual_answer = main_page.get_answer_text_by_index(index)
+    @allure.title("Проверка раскрытия ответов в блоке 'Вопросы о важном'")
+    @pytest.mark.parametrize("index, expected_answer", QUESTIONS_AND_ANSWERS)
+    def test_question_opens_correct_answer(self, driver, index, expected_answer):
+        main_page = MainPage(driver)
+        main_page.open_main_page()
 
-    assert actual_answer == expected_answer
+        main_page.click_question_by_index(index)
+        actual_answer = main_page.get_answer_text_by_index(index)
+
+        assert actual_answer == expected_answer
